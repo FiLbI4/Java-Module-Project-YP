@@ -21,6 +21,9 @@ public class Main {
                 System.out.println(" - Введите скорость машины № " + i);
                 if (scanner.hasNextInt()) {
                     speed = scanner.nextInt();
+
+                    scanner.nextLine();
+
                     if (speed <= 250 && speed > 0) {
                     break;
                     } else {
