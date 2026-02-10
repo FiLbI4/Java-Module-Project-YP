@@ -6,32 +6,36 @@ public class Main {
         Race race = new Race();
 
         for (int i = 1; i <= 3; i++) {
+            //Работа с наименованием
             String carName = "";
             while (true) {
                 System.out.println(" - Введите название машины № " + i);
                 carName = scanner.nextLine();
-                if (carName.trim().isEmpty()) {
+                if (carName.isBlank()) {
                     System.out.println("Вы не ввели название машины!");
                 } else {
                     break;
                 }
             }
+            //Работа со скоростью
             int speed;
             while (true) {
                 System.out.println(" - Введите скорость машины № " + i);
-                if (scanner.hasNextInt()) {
-                    speed = scanner.nextInt();
+                String input = scanner.nextLine();
 
-                    scanner.nextLine();
-
-                    if (speed <= 250 && speed > 0) {
-                    break;
-                    } else {
-                    System.out.println("Введена некорректная скорость! Введите скорость из диапазона от 0 до 250");
+                if (input.isBlank()) {
+                    System.out.println("Вы ввели пустую строчку!");
+                    continue;
                 }
-                } else {
+                try {
+                    speed = Integer.parseInt(input);
+                    if (speed <= 250 && speed > 0) {
+                        break;
+                    } else {
+                        System.out.println("Введена некорректная скорость! Введите скорость из диапазона от 0 до 250");
+                    }
+                } catch (NumberFormatException e) {
                     System.out.println("Введите целое число!");
-                    scanner.next();
                 }
             }
             Car car = new Car(carName, speed);
@@ -41,10 +45,6 @@ public class Main {
         System.out.println("Победитель " + race.leader);
     }
 }
-
-
-
-
 
 
 
