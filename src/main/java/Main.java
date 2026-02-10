@@ -42,7 +42,7 @@ public class Main {
             race.getDistation(car);
         }
         scanner.close();
-        System.out.println("Победитель " + race.leader);
+        System.out.println("Самая быстрая машина: " + race.leader);
     }
 }
 
