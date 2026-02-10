@@ -2,14 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
-     //   String carName = "";
-        //   int speed = 0;
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
         Race race = new Race();
-
-
 
         for (int i = 1; i <= 3; i++) {
 
@@ -36,12 +30,8 @@ public class Main {
         }
         scanner.close();
         System.out.println("Победитель " + race.leader);
-
     }
-
-
-
-    }
+}
 
 
 
