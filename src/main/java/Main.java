@@ -6,45 +6,45 @@ public class Main {
     public static void main(String[] args) {
 
 
-
+     //   String carName = "";
+        //   int speed = 0;
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Car> carArrayList = new ArrayList<>();
         Race race = new Race();
-       // Car car = new Car(carName, speed);
+
 
 
         for (int i = 1; i <= 3; i++) {
 
             System.out.println(" - Введите название машины № " + i);
             String carName = scanner.next();
-
-
-            System.out.println(" - Введите скорость машины № " + i);
-
-            int speed = scanner.nextInt();
-            while (speed > 250 || speed < 0) {
-                System.out.println("Введена некорректная скорость!");
+            int speed = 0;
+            while (true) {
                 System.out.println(" - Введите скорость машины № " + i);
-                speed = scanner.nextInt();
+                if (scanner.hasNextInt()) {
+                    speed = scanner.nextInt();
 
-
+            if (speed > 250 || speed < 0) {
+                break;
+            } else {
+                System.out.println("Введена некорректная скорость!");
             }
-
+                } else {
+                    System.out.println("Введите число!");
+                    scanner.next();
+                }
+            }
             Car car = new Car(carName, speed);
-
-            carArrayList.add(car);
-            race.getDistation(carName, speed);
-
-
-
-
+            race.getDistation(car);
         }
+        scanner.close();
+        System.out.println("Победитель " + race.leader);
 
-        for (Car cars : carArrayList) {
-            System.out.print("Название автомобиля: " + cars.name + ", скорость: " + cars.speed + "\n");
-        }
     }
-}
+
+
+
+    }
+
 
 
 
