@@ -6,22 +6,28 @@ public class Main {
         Race race = new Race();
 
         for (int i = 1; i <= 3; i++) {
-
-            System.out.println(" - Введите название машины № " + i);
-            String carName = scanner.next();
+            String carName = "";
+            while (true) {
+                System.out.println(" - Введите название машины № " + i);
+                carName = scanner.nextLine();
+                if (carName.trim().isEmpty()) {
+                    System.out.println("Вы не ввели название машины!");
+                } else {
+                    break;
+                }
+            }
             int speed;
             while (true) {
                 System.out.println(" - Введите скорость машины № " + i);
                 if (scanner.hasNextInt()) {
                     speed = scanner.nextInt();
-
-            if (speed <= 250 && speed > 0) {
-                break;
-            } else {
-                System.out.println("Введена некорректная скорость!");
-            }
+                    if (speed <= 250 && speed > 0) {
+                    break;
+                    } else {
+                    System.out.println("Введена некорректная скорость! Введите скорость из диапазона от 0 до 250");
+                }
                 } else {
-                    System.out.println("Введите число!");
+                    System.out.println("Введите целое число!");
                     scanner.next();
                 }
             }
